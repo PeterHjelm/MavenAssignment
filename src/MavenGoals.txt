@@ -1,0 +1,20 @@
+Svar på frågor i inlämningsuppgift 2:
+
+Compile: Kompilerar Javas källkoder och konverterar javafilerna till class-filer. Compile lagrar även klasserna
+"classes" i "target"-katalogen döpt till "classes". Den separerar med andra ord java-filerna och "class"-filerna.
+
+Javadoc: Genererar Javadoc för vårt specifika projekt. Den kan skapa Javadoc ett enda dokument
+av Javadoc även för flera nestlade Maven-projekt. Genom att ändra i javadoc plugin så kan vi få
+Javadoc att se ut och bete sig som vi vill, med olika stilar och format.
+
+Rapport för testerna: När vi kör "test" i Maven så skapar Maven en txt-fil med statistik för
+de testfiler vi har i projected. Den rapporterar hur många tester som kördes och om något gick fel.
+Filerna kan vi hitta under "target"-katalogen och därefter under "surefire-reports".
+
+Testning: När vi kör test i Maven så kommer även alla andra faser fram till test att köras.
+Det innebär att Maven kommer att validera projektet, kompilera källkoderna och sedan köra
+unit-testning.
+
+Paketering: När vi kör mvn package eller package i maven så skapas en JAR-fil som innehåller
+de kompilerade Java-filerna från src/main/java. Jar-filen är som en motsvarighet till zip-fil
+där många filer, i det här fallet Java-filer, packas ned till en enda.
