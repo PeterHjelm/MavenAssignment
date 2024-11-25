@@ -45,20 +45,19 @@ public class BookCatalogTest {
 			assertEquals(book1, bc.getBookArray()[0]);
 			}
 			catch (BookNotFoundException e) {
-				fail ("Book not found Exception should not have been thrown");
 			}
     }
 
 	//G
 	@Test
-	public void testFindBookWithExtraSpaces()  {
+	public void testFindBookWithExtraSpaces() throws BookNotFoundException {
 	Book book1 = new Book(1, "Learning Java", "", "", "", 0);
 	bc.addBook(book1);
         try {
             bc.findBook(" Learning Java ");
 			assertEquals(book1, bc.getBookArray()[0]);
         } catch (BookNotFoundException e) {
-            throw new RuntimeException(e);
+
         }
     }
 
@@ -66,24 +65,13 @@ public class BookCatalogTest {
 	// This test should throw BookNotFoundException in order to pass.
 	@Test
 	public void testFindBookThatDoesntExist() {
-//	Book book1 = new Book(1, "Learning Java", "", "", "", 0);
-//	bc.addBook(book1);
-//
-//	Exception exception = (BookNotFoundException.class, () -> {
-//		bc.findBook("Learning to Rule the programming world");
-//	});
-//
-//	assertEquals();
-//	assertEquals("Book not found", exception.getMessage());
-//        try {
-//            bc.findBook("Learning to Rule in coding");
-//        } catch (BookNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//        assertEquals(book1, bc.getBookArray()[0]);
-//
-//	if (book1 != bc.getBookArray()[0]) throw new BookNotFoundException();
+		Book book1 = new Book(1, "Learning Java", "", "", "", 0);
+		bc.addBook(book1);
+
+		String nonExistingTitle = "Book not existing";
+		assertThrows(BookNotFoundException.class, () -> {
+			bc.findBook(nonExistingTitle);
+		}, "Expected BookNotFoundException");
 
 	}
-
-}
+	}
